@@ -1,5 +1,6 @@
 ﻿using Rocket.BL.Common.Models.Pagination;
 using System;
+using Rocket.BL.Common.Models.ReleaseList;
 
 namespace Rocket.BL.Common.Services.ReleaseList
 {
@@ -14,7 +15,7 @@ namespace Rocket.BL.Common.Services.ReleaseList
         /// <param name="pageSize">Размер страницы</param>
         /// <param name="pageNumber">Номер страницы</param>
         /// <returns>Информация о странице релизов</returns>
-        ReleasesPageInfo GetPublishedReleasesPage(int pageSize, int pageNumber);
+        PageInfo<BaseRelease> GetPublishedReleasesPage(int pageSize, int pageNumber);
 
         /// <summary>
         /// Возвращает страницу будущих релизов с заданным номером и размером
@@ -22,6 +23,6 @@ namespace Rocket.BL.Common.Services.ReleaseList
         /// <param name="pageSize">Размер страницы</param>
         /// <param name="pageNumber">Номер страницы</param>
         /// <returns>Информация о странице релизов</returns>
-        ReleasesPageInfo GetFutureReleasesPage(int pageSize, int pageNumber);
+        PageInfo<BaseRelease> GetFutureReleasesPage(int pageSize, int pageNumber);
     }
 }

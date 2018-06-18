@@ -28,7 +28,7 @@ namespace Rocket.BL.Common.Services.ReleaseList
         /// <param name="genreId">Идентификатор жанра</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <returns>Страница музыкальных релизов</returns>
-        MusicPageInfo GetPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null);
+        PageInfo<Music> GetPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null);
 
         /// <summary>
         /// Возвращает страницу музыкальных релизов с заданным номером и размером,
@@ -39,7 +39,7 @@ namespace Rocket.BL.Common.Services.ReleaseList
         /// <param name="genreId">Идентификатор жанра</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <returns>Страница музыкальных релизов</returns>
-        MusicPageInfo GetNewPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null);
+        PageInfo<Music> GetNewPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null);
 
         /// <summary>
         /// Добавляет заданный музыкальный релиз в хранилище данных

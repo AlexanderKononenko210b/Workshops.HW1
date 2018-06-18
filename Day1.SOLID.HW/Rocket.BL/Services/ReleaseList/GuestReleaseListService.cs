@@ -32,7 +32,7 @@ namespace Rocket.BL.Services.ReleaseList
         /// <param name="pageSize">Размер страницы</param>
         /// <param name="pageNumber">Номер страницы</param>
         /// <returns>Информация о странице релизов</returns>
-        public ReleasesPageInfo GetPublishedReleasesPage(int pageSize, int pageNumber)
+        public PageInfo<BaseRelease> GetPublishedReleasesPage(int pageSize, int pageNumber)
         {
             return GetFilteredPage(
                 pageSize,
@@ -47,7 +47,7 @@ namespace Rocket.BL.Services.ReleaseList
         /// <param name="pageSize">Размер страницы</param>
         /// <param name="pageNumber">Номер страницы</param>
         /// <returns>Информация о странице релизов</returns>
-        public ReleasesPageInfo GetFutureReleasesPage(int pageSize, int pageNumber)
+        public PageInfo<BaseRelease> GetFutureReleasesPage(int pageSize, int pageNumber)
         {
             return GetFilteredPage(
                 pageSize,
@@ -56,13 +56,13 @@ namespace Rocket.BL.Services.ReleaseList
                 o => o.OrderBy(k => k.ReleaseDate));
         }
 
-        private ReleasesPageInfo GetFilteredPage(
+        private PageInfo<BaseRelease> GetFilteredPage(
             int pageSize,
             int pageNumber,
             Expression<Func<DbBaseRelease, bool>> filter,
             Func<IQueryable<DbBaseRelease>, IOrderedQueryable<DbBaseRelease>> orderBy)
         {
-            var pageInfo = new ReleasesPageInfo();
+            var pageInfo = new PageInfo<BaseRelease>();
             //pageInfo.TotalItemsCount = _unitOfWork.ReleaseRepository.ItemsCount(filter);
             //pageInfo.TotalPagesCount = (int)Math.Ceiling((double)pageInfo.TotalItemsCount / pageSize);
             //pageInfo.PageItems = Mapper.Map<IEnumerable<BaseRelease>>(

@@ -102,10 +102,7 @@
     <Compile Include="Models\Notification\MusicNotification.cs" />
     <Compile Include="Models\Notification\Receiver.cs" />
     <Compile Include="Models\Notification\EpisodeNotification.cs" />
-    <Compile Include="Models\Pagination\MusicPageInfo.cs" />
     <Compile Include="Models\Pagination\PageInfo.cs" />
-    <Compile Include="Models\Pagination\ReleasesPageInfo.cs" />
-    <Compile Include="Models\Pagination\TvSeriesPageInfo.cs" />
     <Compile Include="Models\PersonalArea\Email.cs" />
     <Compile Include="Models\PersonalArea\MusicGenre.cs" />
     <Compile Include="Models\ReleaseList\BaseRelease.cs" />

@@ -131,7 +131,7 @@ namespace Rocket.BL.Services.ReleaseList
         /// <param name="genreId">Идентификатор жанра</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <returns>Страница музыкальных релизов</returns>
-        public MusicPageInfo GetPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null)
+        public PageInfo<Music> GetPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null)
         {
             Expression<Func<DbMusic, bool>> filter = null;
             if (genreId != null)
@@ -139,7 +139,7 @@ namespace Rocket.BL.Services.ReleaseList
                 filter = f => f.Genres.Select(g => g.Id).Contains(genreId.Value);
             }
 
-            var pageInfo = new MusicPageInfo();
+            var pageInfo = new PageInfo<Music>();
             pageInfo.TotalItemsCount = _unitOfWork.MusicRepository.ItemsCount(filter);
             pageInfo.TotalPagesCount = (int)Math.Ceiling((double)pageInfo.TotalItemsCount / pageSize);
             pageInfo.PageItems = Mapper.Map<IEnumerable<DbMusic>, IEnumerable<Music>>(
@@ -168,7 +168,7 @@ namespace Rocket.BL.Services.ReleaseList
         /// <param name="genreId">Идентификатор жанра</param>
         /// <param name="userId">Идентификатор пользователя</param>
         /// <returns>Страница музыкальных релизов</returns>
-        public MusicPageInfo GetNewPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null)
+        public PageInfo<Music> GetNewPageInfoByDate(int pageSize, int pageNumber, int? genreId = null, string userId = null)
         {
             Expression<Func<DbMusic, bool>> filter = f => f.ReleaseDate <= DateTime.Now;
             if (genreId != null)
@@ -192,7 +192,7 @@ namespace Rocket.BL.Services.ReleaseList
                     f.ReleaseDate <= DateTime.Now;
             }
 
-            var pageInfo = new MusicPageInfo();
+            var pageInfo = new PageInfo<Music>();
             pageInfo.TotalItemsCount = _unitOfWork.MusicRepository.ItemsCount(filter);
             pageInfo.TotalPagesCount = (int)Math.Ceiling((double)pageInfo.TotalItemsCount / pageSize);
             pageInfo.PageItems = Mapper.Map<IEnumerable<DbMusic>, IEnumerable<Music>>(
