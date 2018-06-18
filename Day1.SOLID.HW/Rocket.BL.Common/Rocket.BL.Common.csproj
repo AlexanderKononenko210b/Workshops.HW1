@@ -94,6 +94,7 @@
     <Compile Include="Mappings\UserMappingProfile\UserRoleMappingProfile\PermissionMappingProfile.cs" />
     <Compile Include="Mappings\UserMappingProfile\UserRoleMappingProfile\RoleMappingProfile.cs" />
     <Compile Include="Mappings\UserPayment\UserPaymentMappingProfile.cs" />
+    <Compile Include="Models\Notification\BaseInfoNotification.cs" />
     <Compile Include="Models\Notification\BillingNotification.cs" />
     <Compile Include="Models\Notification\ConfirmationNotification.cs" />
     <Compile Include="Models\Notification\CustomNotification.cs" />
